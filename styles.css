@@ -30,7 +30,20 @@ table td:last-child {
     border-right: none;
 }
 
-#book-form {
+#book-info-input {
+    max-width: 30rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+#book-info-input label{
+    grid-column: 1;
+}
+
+#book-info-input input {
+    grid-column: 2;
+}
+/* #book-form {
     padding:0;
     margin: 0;
     display: flex;
@@ -59,4 +72,4 @@ table td:last-child {
     margin-top: 2rem;
     margin-left: 1rem;
     padding: 0.4rem 0.9rem;
-}
+} */
