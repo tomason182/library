@@ -30,46 +30,68 @@ table td:last-child {
     border-right: none;
 }
 
+#bookEntry {
+    width: 30rem;
+    height: 20rem;
+    border: none;
+    background-color: #99d98c;
+    border-radius: .7rem;
+    box-shadow: 2px 2px black;
+}
+
 #book-info-input {
-    max-width: 30rem;
+    padding: 1rem;
+    border-radius: .7rem;
+    color: #495057;
     display: grid;
     grid-template-columns: auto 1fr;
+    row-gap: 1rem;
 }
 
 #book-info-input label{
     grid-column: 1;
+    padding: .4rem 0;
 }
 
-#book-info-input input {
+#book-info-input input, 
+#book-info-input select {
     grid-column: 2;
-}
-/* #book-form {
-    padding:0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 25rem;
+    padding: .4rem 0;
+    font-size: medium;
+    border-radius: .3rem;
+    border: none;
 }
 
-#book-form .items {
-    display: grid;
-    grid-template-columns: 6rem 19rem;
-    margin: 5px 10px;
+#book-info-input select {
+    color: grey;
 }
 
-#book-form .items input,
-#book-form .items select {
-    margin-left: 1rem;
+#book-info-input input:focus{
+    appearance: none;
+}
+
+#book-info-input input:focus {
+    background-color: #adb5bd;
+    border:none;
+}
+
+button {
+    appearance: none;
 }
 
 .form-button {
+    grid-column: 2;
+    align-items: center;
     display: flex;
-    justify-content: space-around;
-    width:fit-content;
+    justify-content: end;
 }
-#book-form button {
 
-    margin-top: 2rem;
-    margin-left: 1rem;
-    padding: 0.4rem 0.9rem;
-} */
+.form-button button {
+    padding: 0.4rem 0.7rem;
+    margin-left: .4rem;
+    background-color: #007f5f;
+    border:none;
+    border-radius: 0.8rem;
+    color: white;
+}
+
