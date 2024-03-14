@@ -1,0 +1,62 @@
+.main-container {
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: .3rem;
+}
+
+.main-subtitle {
+    color: #adb5bd;
+    margin-top: 0;
+}
+.book-table {
+    margin: auto;
+    min-height: 300px;
+}
+
+.book-table thead {
+    background-color: #ef476f;
+}
+
+table td {
+    border-right: 1px solid white;
+    padding: 0.3rem 3rem;
+    color: white;
+}
+
+table td:last-child {
+    border-right: none;
+}
+
+#book-form {
+    padding:0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 25rem;
+}
+
+#book-form .items {
+    display: grid;
+    grid-template-columns: 6rem 19rem;
+    margin: 5px 10px;
+}
+
+#book-form .items input,
+#book-form .items select {
+    margin-left: 1rem;
+}
+
+.form-button {
+    display: flex;
+    justify-content: space-around;
+    width:fit-content;
+}
+#book-form button {
+
+    margin-top: 2rem;
+    margin-left: 1rem;
+    padding: 0.4rem 0.9rem;
+}

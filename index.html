@@ -7,6 +7,52 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="main-container">
+        <h1>XYZ library</h1>
+        <h3 class="main-subtitle">keep track of all the books you are reading or want to</h3>
+        <table class="book-table">
+            <thead>
+                <tr>
+                    <td>Title</td>
+                    <td>Author</td>
+                    <td>Nro of pages</td>
+                    <td>Status</td>
+                </tr>
+            </thead>
+            <tbody></tbody>            
+        </table>
+        <button type="button">Add book</button>
+        <button type="button">Remove book</button>
+        <button type="button">Change status</button>
+    </div>
+    <div id="book-info-input">
+        <form id="book-form" method="dialog">
+            <div class="book-title items">
+                <label for="title">Book title:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="author items">
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author" required>
+            </div>
+            <div class="pages items">
+                <label for="pages">Num of pages:</label>
+                <input type="number" id="pages" name="pages">
+            </div>
+            <div class="status items">
+                <label for="status">Status:</label>
+                <select name="status" id="status">
+                    <option value="default">Not read yet</option>
+                    <option>Already finished</option>
+                    <option>In queue</option>
+                </select>
+            </div>
+            <div class="form-button">
+                <button type="submit">Add book</button>
+                <button type="submit">Cancel</button>
+            </div>
+        </form>
+    </div>
     
 
 
