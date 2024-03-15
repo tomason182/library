@@ -1,8 +1,13 @@
 const books = document.getElementById("add-book-button");
 const table = document.getElementById("book-table");
+const bookForm = document.getElementById("book-form")
+
+books.addEventListener('click', () => {
+    bookEntry.showModal();
+    })
 
 
-document.getElementById("book-form").addEventListener('submit', function(event) {
+bookForm.addEventListener('submit', function(event) {
     event.preventDefault(); //prevent default behavior of submit form
 
     const title = document.getElementById("title").value;
@@ -14,6 +19,7 @@ document.getElementById("book-form").addEventListener('submit', function(event) 
 
     addBookToTable(newBook);
     bookEntry.close();
+    bookForm.reset();
 
 } )
 
@@ -41,7 +47,7 @@ function addBookToTable(book) {
     statusCell.textContent = book.readStatus;
  }
 
+document.getElementById("cancel").addEventListener('click', () => {
+    bookEntry.close()
+})
 
-books.addEventListener('click', () => {
-    bookEntry.showModal();
-    })
