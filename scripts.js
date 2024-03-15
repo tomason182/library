@@ -62,7 +62,7 @@ function addBookToTable(book) {
 
         if (checkbox.checked === true) {
 
-            tableBody.deleteRow(row.rowIndex -1);
+            tableBody.deleteRow(row.rowIndex -1); // start counting from one instead of zero
 
         };
 

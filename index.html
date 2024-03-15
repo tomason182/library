@@ -8,24 +8,30 @@
 </head>
 <body>
     <div class="main-container">
-        <h1>XYZ library</h1>
-        <h3 class="main-subtitle">keep track of all the books you are reading or want to</h3>
-        <table id="book-table">
-            <thead>
-                <tr>
-                    <td>Select</td>
-                    <td>Title</td>
-                    <td>Author</td>
-                    <td>Nro of pages</td>
-                    <td>Status</td>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>            
-        </table>
-        <button id="add-book-button" type="button">Add book</button>
-        <button id="cancel-request" type="button">Remove book</button>
-        <button id="change-status" type="button">Change status</button>
+        <div class="titles">
+            <h1>XYZ library</h1>
+            <h3 class="main-subtitle">keep track of all the books you are reading or want to</h3>
+        </div>
+        <div id="table-container">
+            <table id="book-table">
+                <thead>
+                    <tr>
+                        <td>Select</td>
+                        <td>Title</td>
+                        <td>Author</td>
+                        <td>Nro of pages</td>
+                        <td>Status</td>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="main-buttons">
+            <button id="add-book-button" type="button">Add book</button>
+            <button id="cancel-request" type="button">Remove book</button>
+            <button id="change-status" type="button">Change status</button>
+        </div>
     </div>
     <dialog id="bookEntry">    
         <form method="dialog" id="book-form">

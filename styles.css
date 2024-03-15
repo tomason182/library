@@ -1,50 +1,104 @@
-.main-container {
-    text-align: center;
+@font-face {
+    font-family: "Roboto";
+    src: url("fonts/Roboto-Regular.ttf") format("truetype");
+
+    font-weight: normal;
+    font-style: normal;
 }
 
-.main-container table {
+@font-face {
+    font-family: "Roboto-black";
+    src: url(fonts/Roboto-Black.ttf) format("truetype");
+
+    font-weight: normal;
+    font-style:normal;
+}
+
+@font-face {
+    font-family: "Roboto-bold";
+    src: url(fonts/Roboto-Bold.ttf) format("truetype");
+
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "madimiOne";
+    src: url(fonts/MadimiOne-Regular.ttf) format("truetype");
+
+    font-weight: normal;
+    font-style: normal;
+}
+
+.main-container {
+    display:grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: 1fr 4fr;
+    text-align: center;
+    width: 60%;
+    margin: 0 auto;
+}
+
+#book-table {
     margin: 2rem auto;
+    width: 100%;
+}
+
+.titles {
+    grid-column: 1 / 3;
 }
 
 h1 {
+    font-family: "madimiOne";
     margin-bottom: .3rem;
+    font-size: 5rem;
 }
 
 .main-subtitle {
+    font-family: "roboto-black";
     color: #adb5bd;
-    margin-top: 0;
+    margin-top: 1rem;
+}
+
+#table-container {
+    min-height: 300px;
 }
 
 #book-table thead {
     background-color: #ef476f;
     color: white;
+    font-family: "Roboto-black";
+    font-size: 0.95rem;
 }
 
 table td {
-    padding: 0.3rem 3rem;
+    padding: 1rem 3rem;
 }
 
-#book-table tr {
-    line-height: 10px;
-}
-
-table td:last-child {
+/* table td:last-child {
     border-right: none;
-}
+} */
 
 #bookEntry {
     width: 30rem;
     height: 20rem;
     border: none;
-    background-color: #99d98c;
+    background-color: #8a817c90;
     border-radius: .7rem;
-    box-shadow: 2px 2px black;
+    box-shadow: 2px 2px #bcb8b1;
 }
+
+::backdrop {
+  background-image: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+  opacity: 0.73;
+  filter: blur(15px);
+
+}
+
 
 #book-info-input {
     padding: 1rem;
     border-radius: .7rem;
-    color: #495057;
     display: grid;
     grid-template-columns: auto 1fr;
     row-gap: 1rem;
@@ -53,6 +107,8 @@ table td:last-child {
 #book-info-input label{
     grid-column: 1;
     padding: .4rem 0;
+    color: #495057;
+    font-family: "Roboto";
 }
 
 #book-info-input input, 
@@ -62,10 +118,7 @@ table td:last-child {
     font-size: medium;
     border-radius: .3rem;
     border: none;
-}
-
-#book-info-input select {
-    color: grey;
+    color:#343a40;
 }
 
 #book-info-input input:focus{
@@ -73,7 +126,7 @@ table td:last-child {
 }
 
 #book-info-input input:focus {
-    background-color: #adb5bd;
+    background-color: #e9ecef;
     border:none;
 }
 
@@ -95,4 +148,29 @@ button {
     border:none;
     border-radius: 0.8rem;
     color: white;
+}
+
+.main-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2rem 0;
+    justify-content: flex-start;
+    border: 1px solid black;
+}
+
+.main-buttons > button {
+    padding: 0.7rem 2.3rem;
+    border: none;
+    border-radius: .5rem;
+    background-color: #49505798 ;
+    color: white;
+    font-family: "Roboto-black";
+    width: 90%;
+    text-align: center;
+}
+
+.main-buttons > button:hover{
+    background-color: #343a40;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
 }
