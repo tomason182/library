@@ -12,6 +12,9 @@ document.getElementById("book-form").addEventListener('submit', function(event) 
 
     const newBook = new BookInfo(title, author, pages, readStatus);
 
+    addBookToTable(newBook);
+    bookEntry.close();
+
 } )
 
 function BookInfo (title, author, pages, readStatus) {
@@ -22,24 +25,20 @@ function BookInfo (title, author, pages, readStatus) {
 
 }
 
-BookInfo.prototype.insertBook = function() {
+function addBookToTable(book) {
 
-    const tableBody = document.getElementById("book-table").getElementsByTagName("tbody");
-    const tableBodyElement = tableBody[0];
-    const newRow = tableBodyElement.insertRow();
-    const titleCell = newRow.insertCell(0);
-    const authorCell = newRow.insertCell(1);
-    const pagesCell = newRow.insertCell(2);
-    const statusCell = newRow.insertCell(3);
+    const tableBody = document.querySelector("#book-table tbody");    
+    const newRow = tableBody.insertRow();
 
-    const addTitle = document.createTextNode(title);
-    const addAuthor = document.createTextNode(author);
-    const addPages = document.createTextNode(pages);
-    const addStatus = document.createTextNode(readStatus);
-    titleCell.appendChild(addTitle);
-    authorCell.appendChild(addAuthor);
-    pagesCell.appendChild(addPages);
-    statusCell.appendChild(addStatus);
+    const titleCell = newRow.insertCell();
+    const authorCell = newRow.insertCell();
+    const pagesCell = newRow.insertCell();
+    const statusCell = newRow.insertCell();
+
+    titleCell.textContent = book.title;
+    authorCell.textContent = book.author;
+    pagesCell.textContent = book.pages;
+    statusCell.textContent = book.readStatus;
  }
 
 
