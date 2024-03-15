@@ -2,19 +2,28 @@ const books = document.getElementById("add-book-button");
 const table = document.getElementById("book-table");
 
 
+document.getElementById("book-form").addEventListener('submit', function(event) {
+    event.preventDefault(); //prevent default behavior of submit form
 
-function getBookInfo() {
     const title = document.getElementById("title").value;
     const author = document.getElementById("author").value;
     const pages = document.getElementById("pages").value;
     const readStatus = document.getElementById("status").value;
 
-    return {title, author, pages, status};
+    const newBook = new BookInfo(title, author, pages, readStatus);
+
+} )
+
+function BookInfo (title, author, pages, readStatus) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.readStatus = readStatus;
+
 }
 
-function insertBook() {
+BookInfo.prototype.insertBook = function() {
 
-    //see how to insert rows in table with return of getBookInfo
     const tableBody = document.getElementById("book-table").getElementsByTagName("tbody");
     const tableBodyElement = tableBody[0];
     const newRow = tableBodyElement.insertRow();
