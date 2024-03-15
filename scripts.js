@@ -16,7 +16,8 @@ function insertBook() {
 
     //see how to insert rows in table with return of getBookInfo
     tableBody = table.getElementsByTagName("tbody");
-    document.createElement("td")
+    const newTd = document.createElement("td");
+    
  
  }
 
