@@ -1,6 +1,10 @@
 .main-container {
-    margin: 0 auto;
     text-align: center;
+}
+
+.main-container table {
+    margin: 0 auto;
+    min-height: 300px;
 }
 
 h1 {
@@ -11,10 +15,6 @@ h1 {
     color: #adb5bd;
     margin-top: 0;
 }
-.book-table {
-    margin: auto;
-    min-height: 300px;
-}
 
 .book-table thead {
     background-color: #ef476f;
@@ -23,7 +23,6 @@ h1 {
 table td {
     border-right: 1px solid white;
     padding: 0.3rem 3rem;
-    color: white;
 }
 
 table td:last-child {
@@ -95,3 +94,4 @@ button {
     color: white;
 }
 
+#book-table
