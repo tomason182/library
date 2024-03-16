@@ -29,17 +29,18 @@ bookForm.addEventListener('submit', function(event) {
 
 } )
 
-function BookInfo (title, author, pages, readStatus) {
+//Create book Object
+function Book (title, author, pages, readStatus) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.readStatus = readStatus;
 
+    return {title, author, pages, readStatus}
 }
 
-function addBookToTable(book) {
-
-    const newRow = tableBody.insertRow();
+Book.prototype.addBookToTable = function {
+        const newRow = tableBody.insertRow();
 
     const checkCell = newRow.insertCell();
     const titleCell = newRow.insertCell();
@@ -52,7 +53,9 @@ function addBookToTable(book) {
     authorCell.textContent = book.author;
     pagesCell.textContent = book.pages;
     statusCell.textContent = book.readStatus;
- }
+
+}
+
 
  function removeBooks () {
     const rows = document.querySelectorAll("#book-table tbody tr");
