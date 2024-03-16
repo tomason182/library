@@ -43,7 +43,7 @@ function createBook (title, author, pages, readStatus) {
 
 // Book prototype method to add book to table
 
-createBook.prototype.addBookToTable = function {
+createBook.prototype.addBookToTable = function (){
     const newRow = tableBody.insertRow();
 
     const checkCell = newRow.insertCell();
