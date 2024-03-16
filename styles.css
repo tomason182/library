@@ -29,6 +29,11 @@
     font-weight: normal;
     font-style: normal;
 }
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #ccd5ae;
+}
 
 .main-container {
     display:grid;
@@ -37,6 +42,7 @@
     text-align: center;
     width: 60%;
     margin: 0 auto;
+   
 }
 
 #book-table {
