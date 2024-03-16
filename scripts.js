@@ -39,8 +39,10 @@ function Book (title, author, pages, readStatus) {
     return {title, author, pages, readStatus}
 }
 
+// Book prototype method to add book to table
+
 Book.prototype.addBookToTable = function {
-        const newRow = tableBody.insertRow();
+    const newRow = tableBody.insertRow();
 
     const checkCell = newRow.insertCell();
     const titleCell = newRow.insertCell();
@@ -49,10 +51,10 @@ Book.prototype.addBookToTable = function {
     const statusCell = newRow.insertCell();
 
     checkCell.innerHTML = "<input type='checkbox'>";
-    titleCell.textContent = book.title;
-    authorCell.textContent = book.author;
-    pagesCell.textContent = book.pages;
-    statusCell.textContent = book.readStatus;
+    titleCell.textContent = this.title;
+    authorCell.textContent = this.author;
+    pagesCell.textContent = this.pages;
+    statusCell.textContent = this.readStatus;
 
 }
 
