@@ -1,17 +1,19 @@
-const books = document.getElementById("add-book-button");
+const addBook = document.getElementById("add-book-button");
 const tableBody = document.querySelector("#book-table tbody");
 const bookForm = document.getElementById("book-form");
 const rmvBook = document.getElementById("cancel-request");
 
-books.addEventListener('click', () => {
-    bookEntry.showModal();
+
+addBook.addEventListener('click', () => {
+    bookDialog.showModal(); // bookDialog is Id of dialog box
     })
 
 document.getElementById("cancel").addEventListener('click', () => {
-    bookEntry.close();
+    bookDialog.close();
     })
 
 rmvBook.addEventListener('click', removeBooks)
+
 
 bookForm.addEventListener('submit', function(event) {
     event.preventDefault(); //prevent default behavior of submit form
@@ -23,14 +25,14 @@ bookForm.addEventListener('submit', function(event) {
 
     const newBook = new BookInfo(title, author, pages, readStatus);
 
-    addBookToTable(newBook);
-    bookEntry.close();
+    newBook.addBookToTable();  // Using the Prototype
+    bookDialog.close();
     bookForm.reset();
 
 } )
 
 //Create book Object
-function Book (title, author, pages, readStatus) {
+function createBook (title, author, pages, readStatus) {
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -41,7 +43,7 @@ function Book (title, author, pages, readStatus) {
 
 // Book prototype method to add book to table
 
-Book.prototype.addBookToTable = function {
+createBook.prototype.addBookToTable = function {
     const newRow = tableBody.insertRow();
 
     const checkCell = newRow.insertCell();
@@ -57,7 +59,6 @@ Book.prototype.addBookToTable = function {
     statusCell.textContent = this.readStatus;
 
 }
-
 
  function removeBooks () {
     const rows = document.querySelectorAll("#book-table tbody tr");
