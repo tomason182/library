@@ -23,7 +23,7 @@ bookForm.addEventListener('submit', function(event) {
     const pages = document.getElementById("pages").value;
     const readStatus = document.getElementById("status").value;
 
-    const newBook = new BookInfo(title, author, pages, readStatus);
+    const newBook = new createBook(title, author, pages, readStatus);
 
     newBook.addBookToTable();  // Using the Prototype
     bookDialog.close();
