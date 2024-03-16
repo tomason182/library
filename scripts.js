@@ -38,7 +38,6 @@ function createBook (title, author, pages, readStatus) {
     this.pages = pages;
     this.readStatus = readStatus;
 
-    return {title, author, pages, readStatus}
 }
 
 // Book prototype method to add book to table
