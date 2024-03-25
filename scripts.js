@@ -25,6 +25,7 @@ class Book {
 function updateTable(e) {
     const info = handlerBookSubmit(e);
     bookEntry.close();
+    bookForm.reset();
     const newBook = new Book();
     newBook.bookInfo = info;
 
@@ -52,11 +53,19 @@ function handlerBookSubmit(e) {
     return {title, author, pages, readStatus}
 }
 
+function cancelForm(){
+
+}
+
 const displayForm = document.querySelector('#add-book-button');
 const bookForm = document.querySelector('#book-form');
+const cancelButton = document.querySelector('#cancel')
 
 displayForm.addEventListener('click', () => {
     bookEntry.showModal();
 });
 
 bookForm.addEventListener('submit', updateTable);
+cancelButton.addEventListener('click', () => {
+    bookEntry.close();
+});
