@@ -28,7 +28,7 @@ function handlerBookInfo () {
     const bookForm = document.querySelector('#book-form');   
     
     
-    function handlerBookSubmit(e) {
+    const handlerBookSubmit = (e) => {
 
             e.preventDefault(); // prevent default behavior of submit form
     
