@@ -36,10 +36,15 @@ function updateTable(e) {
 
     for (let i = 0; i < newBookInfo.length; i++) {
         const newCell = newRow.insertCell(i);
-        newCell.textContent = newBookInfo[i];
-        newRow.appendChild(newCell);
+        const newText = document.createTextNode(newBookInfo[i]);
+        newCell.appendChild(newText);
     }
 
+    const removeCell = newRow.insertCell(newBookInfo.length);
+    const rmvButton = document.createElement('button');
+    rmvButton.classList.add('remove-button');
+    rmvButton.textContent = 'X';
+    removeCell.appendChild(rmvButton);
 }
 
 function handlerBookSubmit(e) {
@@ -51,10 +56,6 @@ function handlerBookSubmit(e) {
     const pages = document.getElementById("pages").value;
     const readStatus = document.getElementById("status").value;
     return {title, author, pages, readStatus}
-}
-
-function cancelForm(){
-
 }
 
 const displayForm = document.querySelector('#add-book-button');
