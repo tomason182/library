@@ -1,7 +1,49 @@
+class Book {
+    constructor() {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.readStatus = readStatus;
+    }
+
+    //Getter    
+    get bookInfo(){
+        console.log(`${this.title} written by ${this.author}. Amount of pages: ${this.pages}`)
+    }
+
+    //Setter
+    set bookInfo(title, author, pages, readStatus) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.readStatus = readStatus;
+    }
+
+    const displayForm = () => {
+        const addBook = document.getElementById("add-book-button");
+        addBook.addEventListener('click', () => {
+            bookEntry.showModal();
+        })
+    }
+
+    const addBook = () => {
+        const bookForm = document.getElementById("book-form");
+
+        bookForm.addEventListener('submit', (e) =>{
+            e.
+        })
+    }
+
+
+}
+
+
+
+
 const books = document.getElementById("add-book-button");
 const tableBody = document.querySelector("#book-table tbody");
 const bookForm = document.getElementById("book-form");
-const rmvBook = document.getElementById("cancel-request");
+const rmvBook = document.getElementById("rmv-book");
 
 books.addEventListener('click', () => {
     bookEntry.showModal();
@@ -68,5 +110,3 @@ function addBookToTable(book) {
 
     });
 }
-
-
