@@ -8,7 +8,7 @@ class Book {
 
     //Getter    
     get bookInfo(){
-        return this.title, this.author, this.pages, this.readStatus;
+        return [this.title, this.author, this.pages, this.readStatus];
     }
 
     //Setter
@@ -27,11 +27,15 @@ function updateTable() {
     const newBook = new Book();
     newBook.bookInfo = info;
 
-    
+    tableBody = document.querySelector('#book-table tbody');
+    newRow = tableBody.insertRow();
 
-    /* code continue here... (Should add book info to table in html field) but
-    the question is, why create a "class" if I can take the info
-    directly from "handlerBookInfo"? */
+    newBookInfo = newBook.bookInfo;
+
+    for (let i = 0; i < newBookInfo.length; i++) {
+        newCell = newRow.insertCell(i);
+        newCell.textContent = newBookInfo[i];
+    }
 
 }
 
