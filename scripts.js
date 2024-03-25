@@ -8,7 +8,7 @@ class Book {
 
     //Getter    
     get bookInfo(){
-        return(`${this.title} written by ${this.author}. Amount of pages: ${this.pages}`)
+        return this.title, this.author, this.pages, this.readStatus;
     }
 
     //Setter
@@ -22,37 +22,46 @@ class Book {
     }
 }
 
-function handlerBookInfo () {
+function updateTable() {
+    const info = handlerBookSubmit();
+    const newBook = new Book();
+    newBook.bookInfo = info;
 
-    const displayForm = document.querySelector('#add-book-button');
-    const bookForm = document.querySelector('#book-form');   
     
-    
-    const handlerBookSubmit = (e) => {
 
-            e.preventDefault(); // prevent default behavior of submit form
-    
-            const title = document.getElementById("title").value;
-            const author = document.getElementById("author").value;
-            const pages = document.getElementById("pages").value;
-            const readStatus = document.getElementById("status").value;
-        return {title, author, pages, readStatus}
-    }
-
-    displayForm.addEventListener('click', () => {
-        bookEntry.showModal();
-    })
-
-    bookForm.addEventListener('submit', handlerBookSubmit);
+    /* code continue here... (Should add book info to table in html field) but
+    the question is, why create a "class" if I can take the info
+    directly from "handlerBookInfo"? */
 
 }
 
+function handlerBookSubmit(e) {
+
+    e.preventDefault(); // prevent default behavior of submit form
+
+    const title = document.getElementById("title").value;
+    const author = document.getElementById("author").value;
+    const pages = document.getElementById("pages").value;
+    const readStatus = document.getElementById("status").value;
+    return {title, author, pages, readStatus}
+}
+
+const displayForm = document.querySelector('#add-book-button');
+const bookForm = document.querySelector('#book-form');
+
+displayForm.addEventListener('click', () => {
+    bookEntry.showModal();
+});
+
+bookForm.addEventListener('submit', updateTable);
 
 
 
 
 
-const books = document.getElementById("add-book-button");
+
+
+/* const books = document.getElementById("add-book-button");
 const tableBody = document.querySelector("#book-table tbody");
 const bookForm = document.getElementById("book-form");
 const rmvBook = document.getElementById("rmv-book");
@@ -121,4 +130,4 @@ function addBookToTable(book) {
         };
 
     });
-}
+} */
