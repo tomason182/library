@@ -20,14 +20,13 @@ class Book {
         this.pages = pages;
         this.readStatus = readStatus;
     }
+}
 
-    static displayForm = () => {
-        const addBook = document.getElementById("add-book-button");
+const displayForm = () => {
+    const addBook = document.getElementById("add-book-button");
         addBook.addEventListener('click', () => {
             bookEntry.showModal();
         })
-    }
-
 }
 
 const getBookInfo = () => {
