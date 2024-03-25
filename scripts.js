@@ -22,26 +22,32 @@ class Book {
     }
 }
 
-const displayForm = () => {
-    const addBook = document.getElementById("add-book-button");
-        addBook.addEventListener('click', () => {
-            bookEntry.showModal();
-        })
-}
+function handlerBookInfo () {
 
-const getBookInfo = () => {
-    const bookForm = document.getElementById("book-form");
+    const displayForm = document.querySelector('#add-book-button');
+    const bookForm = document.querySelector('#book-form');   
+    
+    
+    function handlerBookSubmit(e) {
 
-    bookForm.addEventListener('submit', (e) =>{
-        e.preventDefault(); // prevent default behavior of submit form
+            e.preventDefault(); // prevent default behavior of submit form
+    
+            const title = document.getElementById("title").value;
+            const author = document.getElementById("author").value;
+            const pages = document.getElementById("pages").value;
+            const readStatus = document.getElementById("status").value;
+        return {title, author, pages, readStatus}
+    }
 
-        const title = document.getElementById("title").value;
-        const author = document.getElementById("author").value;
-        const pages = document.getElementById("pages").value;
-        const readStatus = document.getElementById("status").value;
+    displayForm.addEventListener('click', () => {
+        bookEntry.showModal();
     })
-    return {title, author, pages, readStatus}
+
+    bookForm.addEventListener('submit', handlerBookSubmit);
+
 }
+
+
 
 
 
