@@ -156,7 +156,6 @@ button {
     gap: 1rem;
     margin: 2rem 0;
     justify-content: flex-start;
-    border: 1px solid black;
 }
 
 .main-buttons > button {
