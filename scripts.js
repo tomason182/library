@@ -1,5 +1,5 @@
 class Book {
-    constructor() {
+    constructor(title, author, pages, readStatus) {
         this.title = title;
         this.author = author;
         this.pages = pages;
@@ -8,33 +8,40 @@ class Book {
 
     //Getter    
     get bookInfo(){
-        console.log(`${this.title} written by ${this.author}. Amount of pages: ${this.pages}`)
+        return(`${this.title} written by ${this.author}. Amount of pages: ${this.pages}`)
     }
 
     //Setter
-    set bookInfo(title, author, pages, readStatus) {
+    set bookInfo(info) {
+        const {title, author, pages, readStatus} = info;
+
         this.title = title;
         this.author = author;
         this.pages = pages;
         this.readStatus = readStatus;
     }
 
-    const displayForm = () => {
+    static displayForm = () => {
         const addBook = document.getElementById("add-book-button");
         addBook.addEventListener('click', () => {
             bookEntry.showModal();
         })
     }
 
-    const addBook = () => {
-        const bookForm = document.getElementById("book-form");
+}
 
-        bookForm.addEventListener('submit', (e) =>{
-            e.
-        })
-    }
+const getBookInfo = () => {
+    const bookForm = document.getElementById("book-form");
 
+    bookForm.addEventListener('submit', (e) =>{
+        e.preventDefault(); // prevent default behavior of submit form
 
+        const title = document.getElementById("title").value;
+        const author = document.getElementById("author").value;
+        const pages = document.getElementById("pages").value;
+        const readStatus = document.getElementById("status").value;
+    })
+    return {title, author, pages, readStatus}
 }
 
 
