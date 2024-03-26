@@ -33,8 +33,10 @@ class Book {
     }
 }
 
-
 class Library {
+    constructor(){
+        this.books = [];
+    }
     
     updateTable(event) {
         const newBook = new Book();
@@ -43,7 +45,8 @@ class Library {
         bookForm.reset();
         
         newBook.bookInfo = info;
-
+        this.books.push(newBook);
+        console.log(this.books[0])
         const tableBody = document.querySelector('#book-table tbody');
         const newRow = tableBody.insertRow();
     
@@ -57,7 +60,7 @@ class Library {
     
         const selectCell = newRow.insertCell(newBookInfo.length);
         const checkbox = document.createElement('input');
-        checkbox.type = "checkbox"
+        checkbox.type = "checkbox";
         checkbox.classList.add('checkbox');        
         selectCell.appendChild(checkbox);
     }
@@ -71,17 +74,39 @@ class Library {
             const checkbox = row.querySelector('input[type="checkbox"]');
             if (checkbox.checked){
                 tableBody.deleteRow(i);
+                this.books.splice(i, 1);
                 anyChecked = true;
             }
         }
         if (!anyChecked) {
-            alert("Must select at lease one book for deletion");
+            alert("Must select at lease one book for deletion!");
         }
         
     }
 
     changeStatus(){
-        // change status method...
+        const tableBody = document.querySelector('#book-table tbody');
+        let anyChecked = false;
+
+        for (let i = 0; i < tableBody.rows.length; i++){
+            const row = tableBody.rows[i];
+            const checkbox = row.querySelector('input[type="checkbox"]');
+            if (checkbox.checked){
+                let readStatus = row.cells[3].textContent;
+                readStatus = readStatus === 'Not read yet' ? 'read' : 'not read';
+
+                this.books[i].readStatus = readStatus;
+
+                const readStatusCell = row.cells[3];
+                readStatusCell.textContent = this.books[i].readStatus;
+                anyChecked = true;
+                console.log(this.books[i])
+            }            
+        }
+        if(!anyChecked) {
+            alert("Must select at lease one book to change status!")
+        }
+
     }
 }
 
@@ -93,7 +118,7 @@ displayForm.addEventListener('click', () => {
 });
 
 const bookForm = document.querySelector('#book-form');
-bookForm.addEventListener('submit', newLibrary.updateTable);
+bookForm.addEventListener('submit', (event) => newLibrary.updateTable(event));
 
 const cancelButton = document.querySelector('#cancel')
 cancelButton.addEventListener('click', () => {
@@ -101,4 +126,7 @@ cancelButton.addEventListener('click', () => {
 });
 
 const removeBook = document.querySelector("#rmv-book");
-removeBook.addEventListener('click', newLibrary.removeBook);
+removeBook.addEventListener('click', () => newLibrary.removeBook());
+
+const changeStatus = document.querySelector("#change-status");
+changeStatus.addEventListener('click', () => newLibrary.changeStatus());
