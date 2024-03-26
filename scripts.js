@@ -34,19 +34,16 @@ class Book {
 }
 
 
-class Library extends Book{
-    constructor() {
-        super();
-        this.updateTable = this.updateTable.bind(this);
-    }
-
+class Library {
+    
     updateTable(event) {
-        const info = this.handlerBookSubmit(event);
+        const newBook = new Book();
+        const info = newBook.handlerBookSubmit(event);
         bookEntry.close();
         bookForm.reset();
-        const newBook = new Book();
+        
         newBook.bookInfo = info;
-    
+
         const tableBody = document.querySelector('#book-table tbody');
         const newRow = tableBody.insertRow();
     
@@ -77,11 +74,14 @@ class Library extends Book{
                 anyChecked = true;
             }
         }
-
         if (!anyChecked) {
             alert("Must select at lease one book for deletion");
         }
         
+    }
+
+    changeStatus(){
+        // change status method...
     }
 }
 
