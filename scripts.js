@@ -93,7 +93,7 @@ class Library {
             const checkbox = row.querySelector('input[type="checkbox"]');
             if (checkbox.checked){
                 let readStatus = row.cells[3].textContent;
-                readStatus = readStatus === 'Not read yet' ? 'read' : 'not read';
+                readStatus = readStatus === 'Not read' ? 'Read' : 'Not read';
 
                 this.books[i].readStatus = readStatus;
 
