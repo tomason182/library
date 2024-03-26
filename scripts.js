@@ -46,7 +46,6 @@ class Library {
         
         newBook.bookInfo = info;
         this.books.push(newBook);
-        console.log(this.books[0])
         const tableBody = document.querySelector('#book-table tbody');
         const newRow = tableBody.insertRow();
     
