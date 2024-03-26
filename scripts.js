@@ -58,11 +58,11 @@ class Library extends Book{
             newCell.appendChild(newText);
         }
     
-        const removeCell = newRow.insertCell(newBookInfo.length);
-        const rmvButton = document.createElement('button');
-        rmvButton.classList.add('remove-button');
-        rmvButton.textContent = 'X';
-        removeCell.appendChild(rmvButton);
+        const selectCell = newRow.insertCell(newBookInfo.length);
+        const checkbox = document.createElement('input');
+        checkbox.type = "checkbox"
+        checkbox.classList.add('checkbox');        
+        selectCell.appendChild(checkbox);
     }
 }
 
