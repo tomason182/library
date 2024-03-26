@@ -100,7 +100,6 @@ class Library {
                 const readStatusCell = row.cells[3];
                 readStatusCell.textContent = this.books[i].readStatus;
                 anyChecked = true;
-                console.log(this.books[i])
             }            
         }
         if(!anyChecked) {
