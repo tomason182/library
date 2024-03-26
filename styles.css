@@ -89,9 +89,10 @@ table thead th:nth-last-child(-n+3)
     width: 30rem;
     height: 20rem;
     border: none;
-    background-color: #8a817c90;
-    border-radius: .7rem;
+    background-color: #ef476f90;
+    border-radius: .5rem;
     box-shadow: 2px 2px #bcb8b1;
+    
 }
 
 ::backdrop {
@@ -100,7 +101,6 @@ table thead th:nth-last-child(-n+3)
   filter: blur(15px);
 
 }
-
 
 #book-info-input {
     padding: 1rem;
@@ -113,8 +113,8 @@ table thead th:nth-last-child(-n+3)
 #book-info-input label{
     grid-column: 1;
     padding: .4rem 0;
-    color: #495057;
-    font-family: "Roboto";
+    color: white;
+    font-family: "Roboto-bold";
 }
 
 #book-info-input input, 
@@ -124,7 +124,7 @@ table thead th:nth-last-child(-n+3)
     font-size: medium;
     border-radius: .3rem;
     border: none;
-    color:#343a40;
+    color:#0a66c2;
 }
 
 #book-info-input input:focus{
