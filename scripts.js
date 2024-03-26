@@ -64,6 +64,25 @@ class Library extends Book{
         checkbox.classList.add('checkbox');        
         selectCell.appendChild(checkbox);
     }
+
+    removeBook() {
+        const tableBody = document.querySelector('#book-table tbody');
+        let anyChecked = false;
+
+        for (let i = 0; i < tableBody.rows.length; i++) {
+            const row = tableBody.rows[i];
+            const checkbox = row.querySelector('input[type="checkbox"]');
+            if (checkbox.checked){
+                tableBody.deleteRow(i);
+                anyChecked = true;
+            }
+        }
+
+        if (!anyChecked) {
+            alert("Must select at lease one book for deletion");
+        }
+        
+    }
 }
 
 const newLibrary = new Library();
@@ -80,3 +99,6 @@ const cancelButton = document.querySelector('#cancel')
 cancelButton.addEventListener('click', () => {
     bookEntry.close();
 });
+
+const removeBook = document.querySelector("#rmv-book");
+removeBook.addEventListener('click', newLibrary.removeBook);
