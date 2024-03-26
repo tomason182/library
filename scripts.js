@@ -20,53 +20,63 @@ class Book {
         this.pages = pages;
         this.readStatus = readStatus;
     }
+
+    handlerBookSubmit(event) {
+
+        event.preventDefault(); // prevent default behavior of submit form
+    
+        const title = document.getElementById("title").value;
+        const author = document.getElementById("author").value;
+        const pages = document.getElementById("pages").value;
+        const readStatus = document.getElementById("status").value;
+        return {title, author, pages, readStatus}
+    }
 }
 
-function updateTable(e) {
-    const info = handlerBookSubmit(e);
-    bookEntry.close();
-    bookForm.reset();
-    const newBook = new Book();
-    newBook.bookInfo = info;
 
-    tableBody = document.querySelector('#book-table tbody');
-    newRow = tableBody.insertRow();
-
-    newBookInfo = newBook.bookInfo;
-
-    for (let i = 0; i < newBookInfo.length; i++) {
-        const newCell = newRow.insertCell(i);
-        const newText = document.createTextNode(newBookInfo[i]);
-        newCell.appendChild(newText);
+class Library extends Book{
+    constructor() {
+        super();
+        this.updateTable = this.updateTable.bind(this);
     }
 
-    const removeCell = newRow.insertCell(newBookInfo.length);
-    const rmvButton = document.createElement('button');
-    rmvButton.classList.add('remove-button');
-    rmvButton.textContent = 'X';
-    removeCell.appendChild(rmvButton);
+    updateTable(event) {
+        const info = this.handlerBookSubmit(event);
+        bookEntry.close();
+        bookForm.reset();
+        const newBook = new Book();
+        newBook.bookInfo = info;
+    
+        const tableBody = document.querySelector('#book-table tbody');
+        const newRow = tableBody.insertRow();
+    
+        const newBookInfo = newBook.bookInfo;
+    
+        for (let i = 0; i < newBookInfo.length; i++) {
+            const newCell = newRow.insertCell(i);
+            const newText = document.createTextNode(newBookInfo[i]);
+            newCell.appendChild(newText);
+        }
+    
+        const removeCell = newRow.insertCell(newBookInfo.length);
+        const rmvButton = document.createElement('button');
+        rmvButton.classList.add('remove-button');
+        rmvButton.textContent = 'X';
+        removeCell.appendChild(rmvButton);
+    }
 }
 
-function handlerBookSubmit(e) {
-
-    e.preventDefault(); // prevent default behavior of submit form
-
-    const title = document.getElementById("title").value;
-    const author = document.getElementById("author").value;
-    const pages = document.getElementById("pages").value;
-    const readStatus = document.getElementById("status").value;
-    return {title, author, pages, readStatus}
-}
+const newLibrary = new Library();
 
 const displayForm = document.querySelector('#add-book-button');
-const bookForm = document.querySelector('#book-form');
-const cancelButton = document.querySelector('#cancel')
-
 displayForm.addEventListener('click', () => {
     bookEntry.showModal();
 });
 
-bookForm.addEventListener('submit', updateTable);
+const bookForm = document.querySelector('#book-form');
+bookForm.addEventListener('submit', newLibrary.updateTable);
+
+const cancelButton = document.querySelector('#cancel')
 cancelButton.addEventListener('click', () => {
     bookEntry.close();
 });
