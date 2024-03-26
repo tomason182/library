@@ -35,7 +35,7 @@
     grid-template-columns: 4fr 1fr;
     grid-template-rows: 1fr 4fr;
     text-align: center;
-    width: 60%;
+    width: 75%;
     margin: 0 auto;
 }
 
@@ -71,13 +71,19 @@ h1 {
     font-size: 0.95rem;
 }
 
-table td {
-    padding: 1rem 3rem;
+table thead th{
+    padding: 1rem 0;
+    width: 6rem;
 }
 
-/* table td:last-child {
-    border-right: none;
-} */
+table thead th:nth-child(2){
+    width: 2rem;
+}
+
+table thead th:nth-last-child(-n+3)
+{
+    width: 0.5rem;
+}
 
 #bookEntry {
     width: 30rem;
